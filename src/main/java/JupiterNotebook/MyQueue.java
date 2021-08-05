@@ -3,6 +3,7 @@ package JupiterNotebook;
 import java.util.ArrayList;
 
 public class MyQueue<T> {
+    //ArrayList로 Queue기능 구현하기.
     private ArrayList<T> queue = new ArrayList<T>();
 
     public void enqueue(T item) {
