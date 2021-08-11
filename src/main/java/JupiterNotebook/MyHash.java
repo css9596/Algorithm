@@ -7,7 +7,7 @@ public class MyHash {
         this.hashTable = new Slot[size];
     }
 
-    public class Slot {
+    private class Slot {
         String value;
         Slot(String value) {
             this.value = value;
