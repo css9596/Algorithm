@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BubbleSort {
-
+    //버블정렬이란 인접한 두개의 데이터를 비교하여 앞에 있는 데이터가 뒤에 있는 데이터보다 클 경우 자리를 바꾸는 정렬 알고리즘.
     public ArrayList<Integer> sort(ArrayList<Integer> dataList){
         for(int i=0; i<dataList.size()-1; i++)/*한번 반복할 때마다 정렬이 될꺼여서 n-1번 반복 */{
             boolean swap = false;   //더 이상 정렬할게 없을 때를 표시하기 위한 불리언데이터 선언
