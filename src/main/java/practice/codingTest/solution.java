@@ -3,48 +3,32 @@ package practice.codingTest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 class Solution {
-    public String solution() {
-        String answer = "";
+    public int solution() {
+        int answer = 0;
 
-        String[] participant =  {"marina", "josipa", "nikola", "vinko", "filipa"};
-        String[] completion  = {"josipa", "filipa", "marina", "nikola"};
+        String[][] clothes = {{"yellowhat", "headgear"}, //0,1
+                              {"bluesunglasses", "eyewear"}, //1,1
+                              {"green_turban", "headgear"}}; //2,1
 
-        Hashtable<Integer,String > participantMap = new Hashtable<>();
-        Hashtable<Integer,String > completionMap = new Hashtable<>();
+        Map<String, Integer> kinds = new HashMap<>();
+        Map<String, Integer> clothesName = new HashMap<>();
 
-
-        for(int i=0; i < participant.length; i++) {
-            participantMap.put(i, participant[i]);
+        for(int i=0; i<clothes.length; i++){
+            kinds.put(clothes[i][1], i);
+            clothesName.put(clothes[i][0], i);
         }
+        System.out.println(kinds.toString());
+        System.out.println(clothesName.toString());
 
-        for(int i=0; i < completion.length; i++) {
-            completionMap.put(i, completion[i]);
-        }
-
-        while(participantMap.keySet().iterator().hasNext()){
-            System.out.println("ㅋㅋ?");
-            String parKey = participantMap.keySet().iterator().next().toString();
-            System.out.println(parKey);
-            while (completionMap.keySet().iterator().hasNext()){
-                System.out.println("gg?");
-                String comKey = participantMap.keySet().iterator().next().toString();
-                System.out.println(comKey);
-                if(parKey.equals(comKey)){
-                    participantMap.remove(parKey);
-                    completionMap.remove(comKey);
-                }
-            }
-            break;
-        }
+        System.out.println(clothesName.size());
 
 
-        if(!participantMap.isEmpty()) {
-                if(participantMap.keys().hasMoreElements()){
-                    answer = participantMap.values().toString();
-                }
-        }
+
+        answer += clothesName.size();
+
         return answer;
     }
 
