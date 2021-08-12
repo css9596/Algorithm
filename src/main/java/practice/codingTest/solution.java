@@ -1,41 +1,36 @@
 package practice.codingTest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.*;
 
 class Solution {
-    public int solution() {
-        int answer = 0;
+    public ArrayList<Integer> sort(ArrayList<Integer> dataList){
+        for(int data1 = 0; data1<dataList.size()-1; data1++){
+            boolean sort = false;   //정렬종료를 위한 데이터 변수 추가.
+            for(int data2 = 0; data2<dataList.size()-1-data1; data2++){
+                if(dataList.get(data2)>dataList.get(data2+1)){
+                    Collections.swap(dataList, data2, data2+1);
+                    sort = true;
+                }
+            }
 
-        String[][] clothes = {{"yellowhat", "headgear"}, //0,1
-                              {"bluesunglasses", "eyewear"}, //1,1
-                              {"green_turban", "headgear"}}; //2,1
-
-        Map<String, Integer> kinds = new HashMap<>();
-        Map<String, Integer> clothesName = new HashMap<>();
-
-        for(int i=0; i<clothes.length; i++){
-            kinds.put(clothes[i][1], i);
-            clothesName.put(clothes[i][0], i);
+            if(sort == false){
+                break;
+            }
         }
-        System.out.println(kinds.toString());
-        System.out.println(clothesName.toString());
 
-        System.out.println(clothesName.size());
-
-
-
-        answer += clothesName.size();
-
-        return answer;
+        return dataList;
     }
+
 
     public static void main(String[] args){
         Solution test = new Solution();
+        ArrayList<Integer> dataList = new ArrayList<>();
 
-        System.out.println("정답 "+test.solution());
+        for(int i = 0; i<100; i++){
+            dataList.add((int)(Math.random()*100));
+        }
+
+        System.out.println("정답 "+test.sort(dataList));
     }
 }
 
