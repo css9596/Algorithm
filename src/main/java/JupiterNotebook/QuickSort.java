@@ -65,7 +65,7 @@ public class QuickSort {
         ArrayList<Integer> mergedList = new ArrayList<>();
 
         mergedList.addAll(leftList);
-        mergedList.addAll(Arrays.asList(pivot));
+        mergedList.addAll(Arrays.asList(pivot));    //배열로 만들기 위한 Arrays.asList();
         mergedList.addAll(rightList);
 
         System.out.println("MERGED "+mergedList);
