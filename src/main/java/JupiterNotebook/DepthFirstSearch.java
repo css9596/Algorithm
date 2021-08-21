@@ -8,6 +8,11 @@ public class DepthFirstSearch {
     /**
      * DepthFirstSearch(깊이우선탐색)
      *  한 노드의 자식을 타고 끝까지 순회한 후 다시 돌아와서 다른 형제들의 자식을 타고 내려가며 순회함
+     *  복잡도 계산
+     *  노드 수 : V
+     *  간선 수 : E
+     *  while need_visit 은 V + E 번 만큼 수행하기 때문에
+     *  시간 복잡도는 O(V + E)다.
      * */
     public static void main(String[] args) {
         DepthFirstSearch test = new DepthFirstSearch();
