@@ -9,12 +9,46 @@ public class BreadthFirstSearch {
      * 너비 우선 탐색(Breadth-Frist Search)
      * 정점(Vertex)들과 같은 레벨에 있는 노드들(형제 노드들)을 먼저 탐색하는 방식
      * HashMap, ArrayList로 구현 가능
+     * 시간 복잡도
+     *  노드 수 : V
+     *  간선 수 : E
+     *  O(V + E)
      * */
 
     public static void main(String[] arags){
         BreadthFirstSearch test = new BreadthFirstSearch();
         //test.bfsTest();
-        test.bfsFunc();
+
+        HashMap<String, ArrayList<String >> graph = new HashMap<>();
+        graph.put("A", new ArrayList<>(Arrays.asList("B","C")));
+        graph.put("B", new ArrayList<>(Arrays.asList("A","D")));
+        graph.put("C", new ArrayList<>(Arrays.asList("A","G","H","I")));
+        graph.put("D", new ArrayList<>(Arrays.asList("B","E","F")));
+        graph.put("E", new ArrayList<>(Arrays.asList("D")));
+        graph.put("F", new ArrayList<>(Arrays.asList("D")));
+        graph.put("G", new ArrayList<>(Arrays.asList("C")));
+        graph.put("H", new ArrayList<>(Arrays.asList("C")));
+        graph.put("I", new ArrayList<>(Arrays.asList("C","J")));
+        graph.put("J", new ArrayList<>(Arrays.asList("I")));
+
+        System.out.println(test.bfsFunc(graph, "A"));
+    }
+
+    public ArrayList<String> bfsFunc(HashMap<String, ArrayList<String>> graph, String startNode){
+        ArrayList<String> visited = new ArrayList<String>();
+        ArrayList<String> needVisit = new ArrayList<String>();
+
+        needVisit.add(startNode);
+
+        while (needVisit.size() > 0){
+            String node = needVisit.remove(0);
+
+            if(!visited.contains(node)){
+                visited.add(node);
+                needVisit.addAll(graph.get(node));
+            }
+        }
+        return visited;
     }
 
     public void bfsTest(){
@@ -41,21 +75,8 @@ public class BreadthFirstSearch {
         System.out.println(mapData1);
     }
 
-    public void bfsFunc(){
-        HashMap<String, ArrayList<String>> graph = new HashMap<>();
 
-        graph.put("A",new ArrayList<String>(Arrays.asList("B","C")));
-        graph.put("B",new ArrayList<String>(Arrays.asList("A","D")));
-        graph.put("C",new ArrayList<String>(Arrays.asList("A","G", "H", "I")));
-        graph.put("D",new ArrayList<String>(Arrays.asList("B","D", "E")));
-        graph.put("E",new ArrayList<String>(Arrays.asList("D")));
-        graph.put("F",new ArrayList<String>(Arrays.asList("D")));
-        graph.put("H",new ArrayList<String>(Arrays.asList("C")));
-        graph.put("I",new ArrayList<String>(Arrays.asList("C","J")));
-        graph.put("J",new ArrayList<String>(Arrays.asList("I")));
 
-        System.out.println(graph);
-    }
 
 
 
