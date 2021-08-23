@@ -59,6 +59,8 @@ public class MyHashChaining {
                    findSlot = findSlot.next;
                }
            }
+        } else {
+            return null;
         }
         return  null;
     }
